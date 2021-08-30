@@ -1,0 +1,32 @@
+mode: parallel #模式 balance(均衡模式)、parallel(平行模式)
+#balance根据weigth均衡分配cookie，权重越大分配的越多，当一个容器失联时会自动将cookie转移到其他容器。平行模式下，所有容器拥有全部cookie，适合每个容器单独跑特定脚本的情况。
+containers: #容器，可配置多个
+  - address: http://192.168.31.233:5525 #青龙2.2、青龙2.8、v1v2v3v4v5访问地址
+    username: admin
+    password: admin
+    weigth:  
+    mode: parallel
+    limit: 9999
+  #- address: http://192.168.31.233:5525
+    #username: admin
+    #password: admin
+  #- path: /Users/cdle/Desktop/jd_study/jdc/config.sh #本地配置文件路径 v1v2v3v4v5和不知名容器的配置
+  #- path: /Users/cdle/Desktop/jd_study/jdc/list.sh
+theme:  #自定义主题，支持本地、网络路径
+static: ./static
+master:  #管理员账户pin，有多个用'&'拼接
+database:  #数据库位置
+qywx_key:  #企业微信机器人key
+daily_push:
+resident:
+user_agent:
+telegram_bot_token:
+telegram_user_id:
+qquid: #接收通知的qq号
+qqgid: #监听的群
+qbot_public_mode: true
+default_priority:
+no_ghproxy: true
+daily_asset_push_cron: 0 9 * * * #日常资产推送时间
+repos:
+#  - git:
